@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light dark;
+  --black: #242424;
+  --green: #386641;
+  --pink: #ffe5d9;
+  --shadow2: rgba(0, 0, 0, 0.2);
+  --shadow19: rgba(0, 0, 0, 0.19);
+  --monserrat: "Montserrat Variable", sans-serif;
+}
+
+body {
+  font-family: var(--monserrat);
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
