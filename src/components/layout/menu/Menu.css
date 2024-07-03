@@ -1,32 +1,18 @@
 nav {
-  display: flex;
-  height: 120px;
-  margin: auto;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-around;
-
-  div{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  
-    img {
-      width: 70px;
-    }
+  .openBtn{
+    display: none;
   }
-
   ul {
-    display: flex;
-    gap: 1rem;
-    li {
-      a {
-        font-weight: 900;
-        letter-spacing: 1px;
-        color: var(--green);
-        text-transform: capitalize;
-      }
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100dvh;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .showMenu {
+    width: 250px;
+    background-color: var(--shadow19);
   }
 }
-
