@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RoutesMain } from "../../../routes/RoutesMain";
+import hamburguer from "../../../assets/hamburguer.svg";
 import "./Menu.css";
 
 export const Menu = () => {
@@ -19,10 +20,13 @@ export const Menu = () => {
   const routes = RoutesMain().props.children.props.children;
 
   return (
-    <nav>
+    <nav className="containerMenu">
       {/* Si se invoca a openMenu() se le aplica la clase showMenu y tambien se le aplica la clase openBtn */}
-      <button className={openBtnMenu ? "openBtn" : ""} onClick={openMenu}>
-        Menú
+      <button
+        className={openBtnMenu ? "btnHidden" : "btnVisible"}
+        onClick={openMenu}
+      >
+        <img src={hamburguer} alt="Icono del menu" />
       </button>
 
       <ul className={menu ? "showMenu" : ""}>
