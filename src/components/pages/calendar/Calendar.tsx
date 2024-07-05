@@ -1,46 +1,53 @@
-import { useEffect, useState } from "react";
+//import { GetRecipes } from "../../../helpers/GetRecipes";
+import ListRecipes from "../../../data/ListRecipes.json";
+import Days from "../../../helpers/Days.json";
 import "./Calendar.css";
 
 export const Calendar = () => {
+  /* --------- Código para hacer el fetch de las recetas de la DB local o en línea ------------ */
+  // const recipes = GetRecipes()
 
-  // 1. Estado para mostrar las recetas
-  const [recipes, setRecipes] = useState([]);
-
-  // Efecto para montar las recetas en el componente cuando sea cargado
-  useEffect(() => {
-    getRecipes();
-  }, [])
-
-
-  const getRecipes = async () => {
-    try {
-      const petition = await fetch("http://localhost:3000/api/employees");
-      // Obtengo solo los datos del array que hay en data y los paso a un json
-      const data = await petition.json();
-      console.log(data);
-      // Luego los seteo en setRecipes
-      setRecipes(data);
-
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-
+  // Datos obtenidos de forma estática
+  const recipes = ListRecipes; // Solo sería cambiar esto por los datos de la DB.
+  console.log(recipes);
+  const days = Days;
   return (
-    <>
+    <section className="calendar">
       <h1>Calendario</h1>
-      <p>Prueba de calendario</p>
-      {
-        recipes.map(({ id, name, salary }) => (
 
-          <div key={id}>
+      {days.map((day, index) => (
+        <div key={index} className="day">
+          <h2>Este es el día: {day}</h2>
 
-            <p><strong>{id}</strong>: Nombre de la receta: {name} - Costo de preparación: {salary}</p>
-
+          <div className="foodType">
+            Desayuno
+            {recipes.map(({ id, title, category, dayWeek }) =>
+              category === "desayuno" && dayWeek === day ? (
+                <article key={id}>
+                  <p></p>
+                  <h3>{title}</h3>
+                </article>
+              ) : null
+            )}
           </div>
-        ))
-      }
-    </>
+
+          <div className="foodType">
+            Almuerzo
+            {recipes.map(({ id, title, category, dayWeek }) =>
+              category === "almuerzo" && dayWeek === day ? (
+                <article key={id}>
+                  <p></p>
+                  <h3>{title}</h3>
+                </article>
+              ) : null
+            )}
+          </div>
+
+          <div className="foodType">
+            Cena
+            </div>
+        </div>
+      ))}
+    </section>
   );
 };
