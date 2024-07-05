@@ -1,7 +1,16 @@
-nav {
-  .openBtn{
+.containerMenu {
+  .btnVisible {
+    width: 38px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .btnHidden {
     display: none;
   }
+
   ul {
     position: fixed;
     top: 0;
