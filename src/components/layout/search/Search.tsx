@@ -1,3 +1,4 @@
+import search from "../../../assets/search.svg";
 import "./Search.css";
 
 export const Search = () => {
@@ -8,15 +9,11 @@ export const Search = () => {
   };
 
   return (
-    <>
-      <form>
-        <input
-          onChange={serchFood}
-          type="text"
-          placeholder="Buscar receta..."
-        />
-      </form>
-      <img src="/search.svg" alt="bus" />
-    </>
+    <form className="searchComponent">
+      <input onChange={serchFood} type="text" placeholder="Buscar receta..." />
+      <button>
+        <img src={search} alt="Icono para buscar" />
+      </button>
+    </form>
   );
 };

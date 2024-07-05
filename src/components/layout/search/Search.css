@@ -1,20 +1,31 @@
-form {
+.searchComponent {
+  display: flex;
+  width: 300px;
+  height: 25px;
+  padding: 10px;
+  align-content: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: var(--pink);
+  
   input {
-    width: 300px;
-    height: 25px;
-    padding: 10px;
-    border-radius: 2rem;
+    width: 80%;
     font-weight: 900;
-    text-align: center;
     color: var(--green);
-    background-color: var(--pink);
+    background-color: transparent;
   }
+  
+  button {
+    cursor: pointer;
+    img {
+      width: 100%;
+    }
+  }
+  
 }
 
-@media (width <=768px ){
-  form{
-    input{
-      width: 180px;
-    }
+@media (width <= 768px ){
+  .searchComponent{
+    width: 180px;
   }
 }
