@@ -1,6 +1,6 @@
-import { RoutesMain } from "./routes/RoutesMain";
-import { Menu } from "./components/layout/menu/Menu";
 import { useLocation } from "react-router-dom";
+import { RoutesMain } from "./routes/RoutesMain";
+import { Header } from "./components/layout/header/Header";
 
 function App() {
   const location = useLocation();
@@ -17,7 +17,7 @@ function App() {
   if (isValidRoute) {
     return (
       <>
-        <Menu />
+        <Header />
         <RoutesMain />
       </>
     );
