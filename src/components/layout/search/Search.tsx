@@ -8,8 +8,15 @@ export const Search = () => {
   };
 
   return (
-    <form>
-      <input onChange={serchFood} type="text" placeholder="Buscar receta..." />
-    </form>
+    <>
+      <form>
+        <input
+          onChange={serchFood}
+          type="text"
+          placeholder="Buscar receta..."
+        />
+      </form>
+      <img src="/search.svg" alt="bus" />
+    </>
   );
 };
