@@ -1,30 +1,29 @@
-//import { GetRecipes } from "../../../helpers/GetRecipes";
-import ListRecipes from "../../../data/ListRecipes.json";
+// import { GetRecipes } from "../../../helpers/GetRecipes";
+import { GetRecipesStatic } from "../../../helpers/GetRecipesStatic";
 import Days from "../../../helpers/Days.json";
 import "./Calendar.css";
 
 export const Calendar = () => {
-  /* --------- Código para hacer el fetch de las recetas de la DB local o en línea ------------ */
-  // const recipes = GetRecipes()
+  // const recipes = GetRecipes() // Fetch recipes from local DB or online
+  const recipes = GetRecipesStatic(); // Fetch recipes static
 
-  // Datos obtenidos de forma estática
-  const recipes = ListRecipes; // Solo sería cambiar esto por los datos de la DB.
-  console.log(recipes);
   const days = Days;
   return (
     <section className="calendar">
       <h1>Calendario</h1>
 
+      {/* Map for show days to week */}
       {days.map((day, index) => (
-        <div key={index} className="day">
-          <h2>Este es el día: {day}</h2>
+        <aside key={index} className="day">
+          <h2>{day}</h2>
 
           <div className="foodType">
-            Desayuno
-            {recipes.map(({ id, title, category, dayWeek }) =>
+            <h3>Desayuno</h3>
+
+            {recipes.map(({ id, title, category, dayWeek, photo }) =>
               category === "desayuno" && dayWeek === day ? (
                 <article key={id}>
-                  <p></p>
+                  <img src={photo} alt={"Foto de la comida: " + title} />
                   <h3>{title}</h3>
                 </article>
               ) : null
@@ -32,11 +31,12 @@ export const Calendar = () => {
           </div>
 
           <div className="foodType">
-            Almuerzo
-            {recipes.map(({ id, title, category, dayWeek }) =>
+            <h3>Almuerzo</h3>
+
+            {recipes.map(({ id, title, category, dayWeek, photo }) =>
               category === "almuerzo" && dayWeek === day ? (
                 <article key={id}>
-                  <p></p>
+                  <img src={photo} alt={"Foto de la comida: " + title} />
                   <h3>{title}</h3>
                 </article>
               ) : null
@@ -44,9 +44,18 @@ export const Calendar = () => {
           </div>
 
           <div className="foodType">
-            Cena
-            </div>
-        </div>
+            <h3>Cena</h3>
+
+            {recipes.map(({ id, title, category, dayWeek, photo }) =>
+              category === "cena" && dayWeek === day ? (
+                <article key={id}>
+                  <img src={photo} alt={"Foto de la comida: " + title} />
+                  <h3>{title}</h3>
+                </article>
+              ) : null
+            )}
+          </div>
+        </aside>
       ))}
     </section>
   );
