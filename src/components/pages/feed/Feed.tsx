@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import ListRecipes from "../../../data/ListRecipes.json";
-import arrowRight from "../../../assets/arrowRight.svg";
+import { ArrowIcon } from "../../../helpers/ArrowIcon";
 import "./Feed.css";
 
 export const Feed = () => {
@@ -8,15 +8,15 @@ export const Feed = () => {
 
   return (
     <section className="feed">
-      {showList.map(({ title, photo }, index) => (
+      {showList.map(({ title, photo, category }, index) => (
         <article key={index}>
           <img src={photo} alt={photo} />
 
           <div>
             <h2>{title}</h2>
-
+            <span>{category}</span>
             <NavLink to="#">
-              Receta <img src={arrowRight} />
+              Receta <ArrowIcon />
             </NavLink>
           </div>
         </article>
