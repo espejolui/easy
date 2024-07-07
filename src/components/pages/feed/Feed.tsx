@@ -8,8 +8,8 @@ export const Feed = () => {
 
   return (
     <section className="feed">
-      {showList.map(({ title, photo, category }, index) => (
-        <article key={index}>
+      {showList.map(({ id, title, photo, category }) => (
+        <article key={id}>
           <img src={photo} alt={photo} />
 
           <div>
