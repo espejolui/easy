@@ -2,6 +2,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RoutesMain } from "../../../routes/RoutesMain";
 import hamburguer from "../../../assets/hamburguer.svg";
+import close from "../../../assets/close.svg";
+
 import "./Menu.css";
 
 export const Menu = () => {
@@ -24,7 +26,9 @@ export const Menu = () => {
       </button>
 
       <ul className={menu ? "showMenu" : ""}>
-        <button onClick={closeMenu}>X</button>
+        <button className="btnCloseMenu" onClick={closeMenu}>
+          <img src={close} alt="Icono para cerrar menu" />
+        </button>
 
         {routes.map(
           (route: { props: { path: string } }) =>
