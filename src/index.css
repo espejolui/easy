@@ -22,6 +22,7 @@ li {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -33,6 +34,7 @@ input {
 button {
   border: none;
   color: inherit;
+  cursor: pointer;
   background-color: transparent;
 }
 
