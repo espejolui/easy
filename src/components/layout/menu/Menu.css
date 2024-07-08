@@ -1,6 +1,9 @@
 .containerMenu {
   .btnOpenMenu {
-    width: 38px;
+    width: 43px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--pink);
 
     img {
       width: 100%;
