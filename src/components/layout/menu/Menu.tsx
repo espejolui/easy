@@ -19,7 +19,7 @@ export const Menu = () => {
   return (
     <nav className="containerMenu">
       {/* Si se invoca a openMenu() se le aplica la clase showMenu y tambien se le aplica la clase openBtn */}
-      <button className="" onClick={openMenu}>
+      <button className="btnOpenMenu" onClick={openMenu}>
         <img src={hamburguer} alt="Icono del menu" />
       </button>
 
