@@ -6,15 +6,12 @@ import "./Menu.css";
 
 export const Menu = () => {
   const [menu, setMenu] = useState(false);
-  const [openBtnMenu, setOpenBtnMenu] = useState(false);
 
   const openMenu = () => {
     setMenu(true);
-    setOpenBtnMenu(true);
   };
   const closeMenu = () => {
     setMenu(false);
-    setOpenBtnMenu(false);
   };
 
   const routes = RoutesMain().props.children.props.children;
@@ -22,10 +19,7 @@ export const Menu = () => {
   return (
     <nav className="containerMenu">
       {/* Si se invoca a openMenu() se le aplica la clase showMenu y tambien se le aplica la clase openBtn */}
-      <button
-        className={openBtnMenu ? "btnHidden" : "btnVisible"}
-        onClick={openMenu}
-      >
+      <button className="" onClick={openMenu}>
         <img src={hamburguer} alt="Icono del menu" />
       </button>
 
