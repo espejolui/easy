@@ -10,49 +10,24 @@ export const Calendar = () => {
   const days = Days;
   return (
     <section className="calendar">
-      <h1>Calendario</h1>
+      <h1>Calendario semanal</h1>
 
-      {/* Map for show days to week */}
+      {/* Map for render days to week */}
       {days.map((day, index) => (
         <aside key={index} className="day">
           <h2>{day}</h2>
 
-          <div className="foodType">
-            <h3>Desayuno</h3>
-
-            {recipes.map(({ id, title, category, dayWeek, photo }) =>
-              category === "desayuno" && dayWeek === day ? (
-                <article key={id}>
-                  <img src={photo} alt={"Foto de la comida: " + title} />
-                  <h3>{title}</h3>
-                </article>
-              ) : null
-            )}
-          </div>
-
-          <div className="foodType">
-            <h3>Almuerzo</h3>
-
-            {recipes.map(({ id, title, category, dayWeek, photo }) =>
-              category === "almuerzo" && dayWeek === day ? (
-                <article key={id}>
-                  <img src={photo} alt={"Foto de la comida: " + title} />
-                  <h3>{title}</h3>
-                </article>
-              ) : null
-            )}
-          </div>
-
-          <div className="foodType">
-            <h3>Cena</h3>
-
-            {recipes.map(({ id, title, category, dayWeek, photo }) =>
-              category === "cena" && dayWeek === day ? (
-                <article key={id}>
-                  <img src={photo} alt={"Foto de la comida: " + title} />
-                  <h3>{title}</h3>
-                </article>
-              ) : null
+          <div className="typeFood">
+            {/* Map for render recipes */}
+            {recipes.map(
+              ({ id, title, category, dayWeek, photo }) =>
+                dayWeek === day && (
+                  <article key={id}>
+                    <h3>{category}</h3>
+                    <h4>{title}</h4>
+                    <img src={photo} alt={"Foto de la comida: " + title} />
+                  </article>
+                )
             )}
           </div>
         </aside>
