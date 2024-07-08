@@ -7,10 +7,6 @@
     }
   }
 
-  .btnHidden {
-    display: none;
-  }
-
   ul {
     position: fixed;
     top: 0;
