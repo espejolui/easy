@@ -22,7 +22,6 @@ li {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -35,4 +34,17 @@ button {
   border: none;
   color: inherit;
   background-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+li {
+  color: inherit;
 }
