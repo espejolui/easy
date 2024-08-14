@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 interface Recipe {
   id: number,
   title: string,
-  photo: string
+  photo: string,
+  type_food: string,
+  day_week: string
 }
 
 export const GetRecipes = () => {
