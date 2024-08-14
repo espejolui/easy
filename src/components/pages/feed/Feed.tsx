@@ -1,20 +1,19 @@
 import { NavLink } from "react-router-dom";
-import ListRecipes from "../../../data/ListRecipes.json";
 import { ArrowIcon } from "../../../helpers/ArrowIcon";
+import { GetRecipes } from "../../../helpers/GetRecipes";
 import "./Feed.css";
 
 export const Feed = () => {
-  const showList = ListRecipes;
+  const {recipes} = GetRecipes();
 
   return (
     <section className="feed">
-      {showList.map(({ id, title, photo, category }) => (
+      {recipes.map(({ id, title, photo }) => (
         <article key={id}>
-          <img src={photo} alt={photo} />
+          <img src={photo} alt={title} />
 
           <div>
             <h2>{title}</h2>
-            <span>{category}</span>
             <NavLink to="#">
               Receta <ArrowIcon />
             </NavLink>
