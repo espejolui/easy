@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react";
 
+// Interface para usar en feed
+interface Recipe {
+  id: number,
+  title: string,
+  photo: string
+}
+
 export const GetRecipes = () => {
-  // 1. Estado para mostrar las recetas
-  const [recipes, setRecipes] = useState([]);
+  // 1. Estado para mostrar las recetas de tipo Recipe, tal como la definí arriba
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   // 2. Efecto para montar las recetas en el componente cuando sea cargado
   useEffect(() => {
-    getRecipes();
+    fetchRecipes();
   }, []);
 
   // 3. Función asincrona para obtener datos de la DB.
-  const getRecipes = async () => {
+  const fetchRecipes = async () => {
     try {
-      const petition = await fetch("http://localhost:3000/api/employees");
+      const petition = await fetch("http://localhost:1234/api/recipes");
 
       // 3.1 Conversión de los datos a formato JSON
       const data = await petition.json();
@@ -21,7 +28,7 @@ export const GetRecipes = () => {
       setRecipes(data);
     } catch (err) {
       /* ----- Extra: esto lo puedo mejorar para responder a los errores ------ */
-      console.log(err);
+      console.log("Error al obtener los datos", err);
     }
   };
 
