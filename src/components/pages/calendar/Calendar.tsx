@@ -1,11 +1,9 @@
-// import { GetRecipes } from "../../../helpers/GetRecipes";
-import { GetRecipesStatic } from "../../../helpers/GetRecipesStatic";
+import { GetRecipes } from "../../../helpers/GetRecipes";
 import Days from "../../../helpers/Days.json";
 import "./Calendar.css";
 
 export const Calendar = () => {
-  // const recipes = GetRecipes() // Fetch recipes from local DB or online
-  const recipes = GetRecipesStatic(); // Fetch recipes static
+  const {recipes} = GetRecipes();
 
   const days = Days;
   return (
@@ -20,14 +18,14 @@ export const Calendar = () => {
           <div className="typeFood">
             {/* Map for render recipes */}
             {recipes.map(
-              ({ id, title, category, dayWeek, photo }) =>
-                dayWeek === day && (
+              ({ id, title, type_food, day_week, photo }) =>
+                day_week === day && (
                   <article key={id}>
-                    <h3>{category}</h3>
+                    <h3>{type_food}</h3>
                     <h4>{title}</h4>
                     <img src={photo} alt={"Foto de la comida: " + title} />
                   </article>
-                )
+                ),
             )}
           </div>
         </aside>
