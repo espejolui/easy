@@ -1,9 +1,21 @@
+import { GetRecipes } from "../../../helpers/GetRecipes";
 import "./Recipes.css"
 
 export const Ajiaco = () => {
-  return (
+   const {recipes} = GetRecipes();
+  
+    return (
     <>
       <div className="recipe-card">
+
+       {
+        recipes.map(({id, title}) => (
+            <div key={id}>
+                <h1>{title}</h1>
+            </div>
+        ))
+       }
+
         <img
           src="https://res.cloudinary.com/dopllrjwh/image/upload/v1720296686/Yogur_con_Cereal_y_Frutas_vqppsb.webp"
           alt="Yogurt con cereal y frutas"

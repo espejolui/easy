@@ -8,12 +8,12 @@ export const Feed = () => {
 
   return (
     <section className="feed">
-      {recipes.map(({ id, title, photo, type_food }) => (
+      {recipes.map(({ id, name_recipe, photo, type_food, }) => (
         <article key={id}>
-          <img src={photo} alt={title} />
+          <img src={photo} alt={name_recipe} />
 
           <div>
-            <h2>{title}</h2>
+            <h2>{name_recipe}</h2>
             <span>{type_food}</span>
             <NavLink to="#">
               Receta <ArrowIcon />

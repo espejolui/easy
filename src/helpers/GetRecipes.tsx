@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 
 // Interface para usar en feed
 interface Recipe {
-  id: number,
-  title: string,
-  photo: string,
+  id: string,
+  name_recipe: string,
+  preparation: string,
   type_food: string,
-  day_week: string
+  day_week: string,
+  photo: string,
+  ingredients: string[]
 }
 
 export const GetRecipes = () => {
